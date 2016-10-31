@@ -58,11 +58,60 @@ string p2(){
 					sim.success = false;
 					simVect.push_back(sim);
 					count++;
-					xCount++;
-				}
-			}
-		}
 
+					if(sim.Xi == 16){
+						break;
+					}
+
+                    sim.Xi++;
+                    sim.success = false;
+                    simVect.push_back(sim);
+                    count++;
+
+					sim.X++;
+					xCount == sim.X;
+					sim.Ri -= 2;
+				}
+				
+			}
+
+			if(sim.Xi >= 0 && sim.Xi <= 15){
+                if(sim.Ri == 1){
+                    sim.Xi++;
+                    sim.success = true;
+                    simVect.push_back(sim);
+                    count++;
+                    xCount++;
+                }
+                if(sim.Ri == 2){
+                    sim.Xi++;
+                    sim.success = true;
+                    simVect.push_back(sim);
+                    count++;
+                    xCount++;
+                }
+                if(sim.Ri == 3){
+                    sim.Xi++;
+                    sim.success = false;
+                    simVect.push_back(sim);
+                    count++;
+
+                    if(sim.Xi == 16){
+                        break;
+                    }
+
+                    sim.Xi++;
+                    sim.success = false;
+                    simVect.push_back(sim);
+                    count++;
+
+                    sim.X++;
+                    xCount == sim.X;
+                    sim.Ri -= 2;
+
+		}
+		
+		sim.Ri++;
 	}
 }
 
