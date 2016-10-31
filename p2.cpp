@@ -16,7 +16,7 @@ void p2();
 
 struct Simulation {
     int X = 3;
-    int Xi = 1;
+    int Xi = -1;
     int Ri = 1;
 	bool success;
 };
@@ -38,7 +38,8 @@ void p2(){
 		xCount = 0;
 
 		while(xCount < sim.X){
-			if(0 <= sim.Xi <= 14){
+			//Trans 0 to 15
+			if(sim.Xi <= 14){
 				if(sim.Ri == 1){
 					sim.Xi++;
 					sim.success = true;
@@ -69,7 +70,7 @@ void p2(){
                     count++;
 
 					sim.X++;
-					xCount == sim.X;
+					xCount = sim.X;
 					sim.Ri -= 2;
 				}
 				
@@ -116,7 +117,7 @@ void p2(){
                     count++;
 					
                     sim.X++;
-                    xCount == sim.X;
+                    xCount = sim.X;
                     sim.Ri -= 2;
 				}
 			
@@ -156,7 +157,7 @@ void p2(){
                     count++;
 
 					sim.X++;
-					xCount == sim.X;
+					xCount = sim.X;
 					sim.Ri -= 2;
 				}
 				
@@ -212,13 +213,14 @@ void p2(){
                     count++;
 					
                     sim.X++;
-                    xCount == sim.X;
+                    xCount = sim.X;
                     sim.Ri -= 2;
 				}
 			
 			}
 
 		}
+		
 		sim.Ri++;
 	}
 
