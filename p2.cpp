@@ -107,7 +107,7 @@ void p2(){
                     simVect.push_back(sim);
                     count++;
 					
-                    if(sim.Xi == 26){
+                    if(sim.Xi == 25){
                         break;
                     }
 
@@ -147,7 +147,7 @@ void p2(){
 					simVect.push_back(sim);
 					count++;
 
-					if(sim.Xi == 31){
+					if(sim.Xi == 30){
 						break;
 					}
 
