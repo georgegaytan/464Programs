@@ -39,28 +39,22 @@ void p2(){
 
 		while(xCount < sim.X){
 			//Trans 0 to 15
-			if(sim.Xi <= 14){
-				if(sim.Ri == 1){
+			if(sim.Xi <= 15){
+				cout << sim.Ri << "ri xi" << (sim.Xi +2) << '\n';
+				if(sim.Ri == 1 || sim.Ri == 2){
 					sim.Xi++;
 					sim.success = true;
 					simVect.push_back(sim);
 					count++;
 					xCount++;
 	            }
-				if(sim.Ri == 2){
-					sim.Xi++;
-					sim.success = true;
-					simVect.push_back(sim);
-					count++;
-					xCount++;
-				}
 				if(sim.Ri == 3){
 					sim.Xi++;
 					sim.success = false;
 					simVect.push_back(sim);
 					count++;
 
-					if(sim.Xi == 15){
+					if(sim.Xi == 16){
 						break;
 					}
 
@@ -72,29 +66,17 @@ void p2(){
 					sim.X++;
 					xCount = sim.X;
 					sim.Ri -= 2;
+					break;
 				}
 				
 			}
 
-			if(15 <= sim.Xi <= 24){
+			if(16 <= sim.Xi && sim.Xi <= 25){
+				cout << "asdf";
 				//quick check to reinit loop if just exited previous if
 				if(xCount == sim.X) { break; }
 
-                if(sim.Ri == 1){
-                    sim.Xi++;
-                    sim.success = true;
-                    simVect.push_back(sim);
-                    count++;
-                    xCount++;
-                }
-                if(sim.Ri == 2){
-                    sim.Xi++;
-                    sim.success = true;
-                    simVect.push_back(sim);
-                    count++;
-                    xCount++;
-                }
-                if(sim.Ri == 3){
+                if(sim.Ri == 1 || sim.Ri == 2 || sim.Ri == 3){
                     sim.Xi++;
                     sim.success = true;
                     simVect.push_back(sim);
@@ -107,7 +89,7 @@ void p2(){
                     simVect.push_back(sim);
                     count++;
 					
-                    if(sim.Xi == 25){
+                    if(sim.Xi == 26){
                         break;
                     }
 
@@ -119,35 +101,30 @@ void p2(){
                     sim.X++;
                     xCount = sim.X;
                     sim.Ri -= 2;
+                    break;
 				}
 			
 			}
 
-			if(25 <= sim.Xi <= 29){
+			if(26 <= sim.Xi && sim.Xi <= 30){
+				cout << "asdasdfasdff";
 				//quick check to reinit loop if just exited previous if
 				if(xCount == sim.X) { break; }
 
-				if(sim.Ri == 1){
+				if(sim.Ri == 1 || sim.Ri == 2){
 					sim.Xi++;
 					sim.success = true;
 					simVect.push_back(sim);
 					count++;
 					xCount++;
 	            }
-				if(sim.Ri == 2){
-					sim.Xi++;
-					sim.success = true;
-					simVect.push_back(sim);
-					count++;
-					xCount++;
-				}
 				if(sim.Ri == 3){
 					sim.Xi++;
 					sim.success = false;
 					simVect.push_back(sim);
 					count++;
 
-					if(sim.Xi == 30){
+					if(sim.Xi == 31){
 						break;
 					}
 
@@ -159,11 +136,13 @@ void p2(){
 					sim.X++;
 					xCount = sim.X;
 					sim.Ri -= 2;
+					break;
 				}
 				
 			}
 
-			if(sim.Xi >= 30){
+			if(sim.Xi >= 31){
+				cout << '\n' << count << ":" <<  xCount << ":" << sim.Xi << ":"<< sim.Ri << ":" << sim.X << '\n';
 				//quick check to reinit loop if just exited previous if
 				if(xCount == sim.X) { break; }
 				//quick check for last transmission range
@@ -173,24 +152,11 @@ void p2(){
                 }
 				// cout << "c " << count << "\n";
 				// cout << "Xi " << sim.Xi << "\n";
+				if (sim.Ri > 6) exit(0);
 
-				if(count == packet_trans) { break; }
+				if(count >= (packet_trans+2)) { break; }
 
-                if(sim.Ri == 1){
-                    sim.Xi++;
-                    sim.success = true;
-                    simVect.push_back(sim);
-                    count++;
-                    xCount++;
-                }
-                if(sim.Ri == 2){
-                    sim.Xi++;
-                    sim.success = true;
-                    simVect.push_back(sim);
-                    count++;
-                    xCount++;
-                }
-                if(sim.Ri == 3){
+                if(sim.Ri == 1 || sim.Ri == 2 || sim.Ri == 3){
                     sim.Xi++;
                     sim.success = true;
                     simVect.push_back(sim);
@@ -215,19 +181,19 @@ void p2(){
                     sim.X++;
                     xCount = sim.X;
                     sim.Ri -= 2;
+                    break;
 				}
 			
 			}
 
-		}
-		
+		}	
 		sim.Ri++;
 	}
 
 	int successes = 0;
 	int failures = 0;
 
-	for(int i = 0; i < 1000; i++){
+	for(int i = 0; i < packet_trans; i++){
 		cout << boolalpha;
 		cout << "Packet" << (i+1) << ":" << simVect[i].success << "\n";
 		
