@@ -1,4 +1,4 @@
-//FOR THE USE IN CSCE464 
+//FOR THE USE IN CSCE464 sdalf
 //Copyright © 2016 by George Steven Gaytan
 //All Rights Reserved
 #include <iostream>
