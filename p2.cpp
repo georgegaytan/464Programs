@@ -40,7 +40,7 @@ void p2(){
 		while(xCount < sim.X){
 			//Trans 0 to 15
 			if(sim.Xi <= 15){
-				cout << sim.Ri << "ri xi" << (sim.Xi +2) << '\n';
+				//cout << sim.Ri << "ri xi" << (sim.Xi +2) << '\n';
 				if(sim.Ri == 1 || sim.Ri == 2){
 					sim.Xi++;
 					sim.success = true;
