@@ -18,7 +18,9 @@ class Path_gains(){
 	long power;//pathgain of transmission
 };
 
-p3(int, vector<Path_gains>, vector<long>, 
+void p3(int, vector<Path_gains>, vector<long>);
+vector<Path_gains> init_path_gains(vector<char> nodes, vector<long> gains);
+vector<long> init_trans_pow(vector<char> nodes, vector<long> init_pow);
 
 int main(){
 	//for mimicking hw problem
@@ -28,7 +30,15 @@ int main(){
 	p3(times, init_path_gains(), init_trans_pow());
 }
 
-p3(int times, vector<pathgains> path_gains, 
-	vector<long> trans_pow, ){
+void p3(int times, vector<Path_gains> path_gains, 
+	vector<long> trans_pow){
+	
+}
+
+vector<Path_gains> init_path_gains(vector<char> nodes, vector<long> gains){
+	
+}
+
+vector<long> init_trans_pow(vector<char> nodes, vector<long> init_pow){
 	
 }
