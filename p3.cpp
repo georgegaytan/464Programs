@@ -10,14 +10,14 @@
 using namespace std;
 
 //global variables
-const long NOISE = pow(10, -10);//10^-10 mW
+const double NOISE = pow(10, -10);//10^-10 mW
 const long Bi = 316;//25 dB
 
 //object for Path_gains
 struct Path_gain{
 	char trans;//transmitter
 	char rec;//receiver
-	long power;//pathgain of transmission
+	double power;//pathgain of transmission
 };
 
 //funct declarations
@@ -38,17 +38,17 @@ void p3(int times){
 	int count = 0;
 	for(int t = 1; t <= times; ++t){
 		if (count == 0){
-			trans_pow.push_back(Bi*(pgv[0].power + NOISE)/(pgv[2].power));
+			trans_pow.push_back((Bi*(pgv[2].power + NOISE))/(pgv[0].power));
 			count++;
 			cout << "Power for A at time " << t << ":" << trans_pow[0] << endl;
-			trans_pow.push_back(Bi*(pgv[1].power + NOISE)/(pgv[3].power));
+			trans_pow.push_back((Bi*(pgv[1].power + NOISE))/(pgv[3].power));
 			count++;
 			cout << "Power for C at time " << t << ":" << trans_pow[1] << endl;
 		} else {
-			trans_pow.push_back(Bi*trans_pow[count-1]*(pgv[0].power + NOISE)/(pgv[2].power));
+			trans_pow.push_back((Bi*(trans_pow[count-1]*pgv[2].power + NOISE))/(pgv[0].power));
 			cout << "Power for A at time " << t << ":" << trans_pow[count] << endl;
 			count++;
-			trans_pow.push_back(Bi*trans_pow[count-3]*(pgv[0].power + NOISE)/(pgv[3].power));
+			trans_pow.push_back((Bi*(trans_pow[count-3]*pgv[1].power + NOISE))/(pgv[3].power));
 			cout << "Power for B at time " << t << ":" << trans_pow[count] << endl;
 			count++;
 		}
