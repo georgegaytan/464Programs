@@ -8,24 +8,30 @@
 
 using namespace std;
 
+//global variables
 const long NOISE = pow(10, -10);//10^-10 mW
 const long Bi = 25;//25 dB
+vector<char> nodes;//fill with nodes
 
-
+//object for Path_gains
 class Path_gains(){
 	char trans;//transmitter
 	char rec;//receiver
 	long power;//pathgain of transmission
 };
 
+//funct declarations
 void p3(int, vector<Path_gains>, vector<long>);
-vector<Path_gains> init_path_gains(vector<char> nodes, vector<long> gains);
-vector<long> init_trans_pow(vector<char> nodes, vector<long> init_pow);
+//HELPERS
+vector<Path_gains> init_path_gains(vector<long> gains);
+vector<long> init_trans_pow(vector<long> init_pow);
 
 int main(){
 	//for mimicking hw problem
 	//set parameters here
 	int times = 4;
+	vector<long> gains; vector<long> init_pow;
+	gains.push
 
 	p3(times, init_path_gains(), init_trans_pow());
 }
@@ -35,10 +41,10 @@ void p3(int times, vector<Path_gains> path_gains,
 	
 }
 
-vector<Path_gains> init_path_gains(vector<char> nodes, vector<long> gains){
+vector<Path_gains> init_path_gains(vector<long> gains){
 	
 }
 
-vector<long> init_trans_pow(vector<char> nodes, vector<long> init_pow){
+vector<long> init_trans_pow(vector<long> init_pow){
 	
 }
